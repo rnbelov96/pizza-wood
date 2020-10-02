@@ -1,0 +1,231 @@
+.calc
+  min-height: 1286px
+  padding: 100px 0
+  background: #FAFAFB
+  &__title
+    font-family: Jost
+    font-style: normal
+    font-weight: 600
+    font-size: 42px
+    line-height: 44px
+    color: #282827
+    margin-bottom: 80px
+  &__column-container
+    display: flex
+    justify-content: space-between
+    margin-bottom: 80px
+  &__column
+    display: flex
+    flex-direction: column
+    width: 47%
+  &__stat-row
+    width: 100%
+    height: 70px
+    background: #FAFAFB 
+    border: 1px solid #E7E8EA 
+    border-radius: 4px 4px 0px 0px
+    margin-bottom: 20px
+    position: relative
+    display: flex
+    &:last-child
+      margin-bottom: 0
+  &__stat-text
+    font-weight: 500
+    font-size: 14px
+    display: flex
+    align-items: center
+    color: #000000
+    padding-left: 15px
+    border-right: 1px solid #E7E8EA
+    width: 68%
+  &__stat-number
+    width: 32%
+    display: flex
+    justify-content: center
+    align-items: center
+    font-weight: 600
+    font-size: 20px
+    line-height: 24px
+    color: #000000
+  &__outer-caption
+    font-weight: 600
+    font-size: 20px
+    line-height: 24px
+    color: #000000
+    margin-bottom: 20px
+  &__spend-caption
+    margin: 40px 0 20px 0
+    font-weight: 600 
+    font-size: 20px
+    line-height: 24px
+    color: #000000
+  &__input-radio-container
+    display: flex
+    justify-content: space-between
+    width: 100%
+    margin-bottom: 20px
+  &__input-radio-caption
+    font-weight: 600
+    font-size: 20px
+    line-height: 70px
+    height: 70px
+    margin-bottom: 0
+    color: #000000
+  &__input-radio-box
+    background: #FFFFFF
+    border: 1px solid #E7E8EA
+    border-radius: 4px
+    display: flex
+    align-items: center
+    padding-left: 10px
+    width: 35%
+  &__input-radio-label
+    font-weight: 500
+    font-size: 14px
+    line-height: 17px
+    color: #000000
+    margin-bottom: 0
+    position: relative
+    cursor: pointer
+    display: flex
+    align-items: center
+    &::before
+      content: ""
+      display: inline-block
+      width: 21px
+      height: 21px
+      margin-right: 11px
+      position: relative
+      border-radius: 50%
+      border: 2px solid #E7E8EA
+      cursor: pointer
+    &::after
+      display: inline-block
+      width: 10px
+      height: 10px
+      margin-right: 11px
+      position: absolute
+      left: 5px
+      top: 5px
+      border-radius: 50%
+      background: #F8CE4C
+      cursor: pointer
+  &__input-radio
+    display: none
+    &:checked + &-label::after, &:checked + &-label::before
+      content: ""
+      border-color: #F8CE4C
+  &__input-range
+    background: linear-gradient(to right, #F8CE4C 0%, #F8CE4C 50%, #E7E8EA 50%, #E7E8EA 100%)
+    border-radius: 8px
+    height: 2px
+    width: 100%
+    outline: none
+    position: absolute
+    bottom: 0px
+    transition: background 450ms ease-in
+    -webkit-appearance: none
+    &::-webkit-slider-thumb
+      width: 20px
+      height: 20px
+      -webkit-appearance: none
+      cursor: pointer
+      background: #FFFFFF
+      border: 2px solid #F8CE4C
+      border-radius: 50%
+    &::-moz-range-thumb
+      width: 20px
+      height: 20px
+      cursor: pointer
+      background: #FFFFFF
+      border: 2px solid #F8CE4C
+      border-radius: 50%
+    &::-ms-thumb
+      width: 20px
+      height: 20px
+      cursor: pointer
+      background: #FFFFFF
+      border: 2px solid #F8CE4C
+      border-radius: 50%
+  &__buy-box
+    width: 100%
+    padding: 30px 0
+    background: #FFFFFF
+    border: 2px solid #F8CE4C
+    box-sizing: border-box
+    border-radius: 4px
+  &__buy-box-title
+    font-weight: 600
+    font-size: 14px
+    line-height: 17px
+    color: #000000
+    margin-bottom: 20px
+    text-align: center
+  &__buy-box-list
+    width: 85%
+    margin: 0 auto
+    display: flex
+    flex-wrap: wrap
+    margin-bottom: 33px
+  &__buy-box-item
+    width: 50%
+    display: flex
+    align-items: center
+    padding: 11px 0 11px 20px
+    font-weight: 500
+    font-size: 14px
+    line-height: 17px
+    color: #000000
+    background: #FFFFFF
+    border: 1px solid #E7E8EA
+  &__buy-box-result
+    text-align: center
+    font-weight: 600
+    font-size: 20px
+    line-height: 24px
+  &__result
+    width: 100%
+    border: 1px solid #E7E8EA
+    box-sizing: border-box
+    border-radius: 4px
+    padding: 60px 50px
+    background: #FFFFFF
+  &__form-title
+    font-weight: 600
+    font-size: 20px
+    line-height: 24px
+    color: #000000
+    text-align: center
+    margin-bottom: 40px
+  &__form
+    display: flex
+    justify-content: space-between
+  &__input-box
+    width: 21%
+    position: relative
+  &__form-input
+    background: #FAFAFB
+    border: 1px solid #E7E8EA
+    box-sizing: border-box
+    border-radius: 0px 4px 0px 0px
+    width: 100%
+    height: 100%
+    padding: 0px 20px
+    &::placeholder
+      font-size: 16px
+      line-height: 20px
+      color: #000000
+    &_error
+      border: 1px solid #ee0e0e
+      color: #ee0e0e
+      &::placeholder
+        color: #ee0e0e
+  &__error-msg
+    font-size: 14px
+    color: red
+    position: absolute
+    top: calc(100% + 5px)
+    width: 100%
+    &_invisible
+      display: none
+

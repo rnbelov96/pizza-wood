@@ -1,0 +1,47 @@
+.order-btn
+  background: #F8CE4C
+  width: 100%
+  height: 100%
+  border-radius: 4px
+  font-weight: 600
+  font-size: 18px
+  text-align: center
+  color: #282827
+  padding: 28px 25px
+  line-height: 22px
+  border: none
+  display: flex
+  align-items: center
+  justify-content: center
+  position: relative
+  z-index: 2
+  &:active, &:focus
+    outline: none;
+  &:active
+    background-color: #C7841F
+.order-btn-shadow
+  height: 70px
+  width: calc(100% - 1px)
+  background: #C7841F
+  border-radius: 10px
+  position: absolute
+  left: 50%
+  transform: translateX(-50%)
+  top: 4px
+  z-index: 1
+.order-btn-container
+  position: relative
+  height: 70px
+  &_search
+    width: 524px
+  &_calc
+    width: 33%
+  &_cities
+    width: 386px
+  &_contact-form
+    width: 100%
+    margin-bottom: 30px
+  &_format
+    width: 100%
+  &_steps
+    width: 30%
