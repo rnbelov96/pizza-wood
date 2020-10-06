@@ -38,9 +38,9 @@ nextBtnEl.addEventListener('click', () => {
   setTimeout(() => {
     prevBtnEl.disabled = false;
     nextBtnEl.disabled = false;
-  }, 1000);
+  }, 1100);
 
-  // Добавили и тут же сместили
+  // Добавили новый слайд
   let imgToAppendIndex = centralImgIndex + 2;
   if (imgToAppendIndex === imageElList.length) {
     imgToAppendIndex = 0;
@@ -49,32 +49,30 @@ nextBtnEl.addEventListener('click', () => {
   }
   imageElList[imgToAppendIndex].className = 'slider__slide-out-right';
   containerEl.append(imageElList[imgToAppendIndex]);
-  setTimeout(() => {
-    imageElList[imgToAppendIndex].className = 'slider__slide-3';
-  }, 0);
 
-  // Сместили левый и тут же удалили
+  // Определили индекс левой картинки и запустили отложенное удаление
   let leftImgIndex = centralImgIndex - 1;
   if (leftImgIndex < 0) {
     leftImgIndex = imageElList.length - 1;
   }
-  imageElList[leftImgIndex].className = 'slider__slide-out-left';
   setTimeout(() => {
     imageElList[leftImgIndex].remove();
   }, 1000);
 
-  // Сместили центральный
-  imageElList[centralImgIndex].className = 'slider__slide-1';
-
-  // Сместили правый
+  // Определили индекс правой картинки
   let rightImgIndex = centralImgIndex + 1;
   if (rightImgIndex === imageElList.length) {
     rightImgIndex = 0;
   }
-  imageElList[rightImgIndex].className = 'slider__slide-2';
 
-  // Изменили текущий слайд
-  centralImgIndex = rightImgIndex;
+  // Запустили отложенное смещение слайдов и изменили индекс центральной картинки
+  setTimeout(() => {
+    imageElList[imgToAppendIndex].className = 'slider__slide-3';
+    imageElList[leftImgIndex].className = 'slider__slide-out-left';
+    imageElList[centralImgIndex].className = 'slider__slide-1';
+    imageElList[rightImgIndex].className = 'slider__slide-2';
+    centralImgIndex = rightImgIndex;
+  }, 50);
 });
 
 prevBtnEl.addEventListener('click', () => {
@@ -85,6 +83,8 @@ prevBtnEl.addEventListener('click', () => {
     prevBtnEl.disabled = false;
     nextBtnEl.disabled = false;
   }, 1000);
+
+  // Добавили новый слайд
   let imgToAppendIndex = centralImgIndex - 2;
   if (imgToAppendIndex === -2) {
     imgToAppendIndex = imageElList.length - 2;
@@ -93,30 +93,28 @@ prevBtnEl.addEventListener('click', () => {
   }
   imageElList[imgToAppendIndex].className = 'slider__slide-out-left';
   containerEl.append(imageElList[imgToAppendIndex]);
-  setTimeout(() => {
-    imageElList[imgToAppendIndex].className = 'slider__slide-1';
-  }, 0);
 
-  // Сместили правый и тут же удалили
+  // Определили индекс правой картинки и запустили отложенное удаление
   let rightImgIndex = centralImgIndex + 1;
   if (rightImgIndex === imageElList.length) {
     rightImgIndex = 0;
   }
-  imageElList[rightImgIndex].className = 'slider__slide-out-right';
   setTimeout(() => {
     imageElList[rightImgIndex].remove();
   }, 1000);
 
-  // Сместили центральный
-  imageElList[centralImgIndex].className = 'slider__slide-3';
-
-  // Сместили левый
+  // Определили индекс левой картинки
   let leftImgIndex = centralImgIndex - 1;
   if (leftImgIndex < 0) {
     leftImgIndex = imageElList.length - 1;
   }
-  imageElList[leftImgIndex].className = 'slider__slide-2';
 
-  // Изменили текущий слайд
-  centralImgIndex = leftImgIndex;
+  // Запустили отложенное смещение слайдов и изменили индекс центральной картинки
+  setTimeout(() => {
+    imageElList[imgToAppendIndex].className = 'slider__slide-1';
+    imageElList[rightImgIndex].className = 'slider__slide-out-right';
+    imageElList[centralImgIndex].className = 'slider__slide-3';
+    imageElList[leftImgIndex].className = 'slider__slide-2';
+    centralImgIndex = leftImgIndex;
+  }, 50);
 });
