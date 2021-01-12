@@ -29,11 +29,19 @@ module.exports = {
       },
       {
         test: /\.(png|jpg|gif|webp|svg)$/,
-        type: 'asset/resource',
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192,
+            },
+          },
+          'image-webpack-loader',
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
-        type: 'asset/inline',
+        type: 'asset/resource',
       },
       {
         test: /\.html$/,
