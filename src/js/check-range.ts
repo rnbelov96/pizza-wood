@@ -1,5 +1,7 @@
-const checkLabelEl = document.getElementById('check-label');
-const checkInputEl = document.getElementById('check-range-input');
+export {};
+
+const checkLabelEl = document.getElementById('check-label') as HTMLLabelElement;
+const checkInputEl = document.getElementById('check-range-input') as HTMLInputElement;
 const checkInputStep = Number(checkInputEl.getAttribute('step'));
 let stepCounter = 0;
 const valuesNumber = 100 / checkInputStep;
@@ -21,11 +23,14 @@ const valueList = Array(valuesNumber + 1)
   });
 
 checkInputEl.addEventListener('input', e => {
-  e.currentTarget.style.background = `
-    linear-gradient(to right, #F8CE4C 0%, #F8CE4C ${e.currentTarget.value}%, #E7E8EA ${e.currentTarget.value}%, #E7E8EA 100%)
+  const targerEl = e.currentTarget as HTMLInputElement;
+  targerEl.style.background = `
+    linear-gradient(to right, #F8CE4C 0%, #F8CE4C ${targerEl.value}%, #E7E8EA ${targerEl.value}%, #E7E8EA 100%)
   `;
   const valueToShow = valueList.find(
-    value => value.step === Number(e.currentTarget.value),
+    value => value.step === Number(targerEl.value),
   );
-  checkLabelEl.textContent = `${valueToShow.value} ₽`;
+  if (valueToShow) {
+    checkLabelEl.textContent = `${valueToShow.value} ₽`;
+  }
 });

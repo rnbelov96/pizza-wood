@@ -23,14 +23,14 @@ imageElList[0].className = 'slider__slide-1';
 imageElList[1].className = 'slider__slide-2';
 imageElList[2].className = 'slider__slide-3';
 
-const containerEl = document.querySelector('.slider__container');
+const containerEl = document.querySelector('.slider__container') as HTMLDivElement;
 
 imageElList.slice(0, 3).forEach(img => {
   containerEl.append(img);
 });
 
-const nextBtnEl = document.querySelector('.slider__next');
-const prevBtnEl = document.querySelector('.slider__prev');
+const nextBtnEl = document.querySelector('.slider__next') as HTMLButtonElement;
+const prevBtnEl = document.querySelector('.slider__prev') as HTMLButtonElement;
 
 nextBtnEl.addEventListener('click', () => {
   prevBtnEl.disabled = true;
